@@ -1,8 +1,9 @@
-var http   = require('http')
-  , url    = require('url')
-  , stream = require('stream')
-  , fs     = require('fs')
-  , gm     = require('gm');
+var http        = require('http')
+  , url         = require('url')
+  , querystring = require('querystring')
+  , stream      = require('stream')
+  , fs          = require('fs')
+  , gm          = require('gm');
 
 server = http.createServer().listen(8124);
 
@@ -17,7 +18,7 @@ server.on('request', function (request, response) {
     method: 'GET'
   };
 
-  console.log(image_url);
+  qs = querystring.parse(image_url.query);
 
   var proxiedRequest = http.request(options);
   proxiedRequest.on('response', function(proxiedResponse) {
@@ -27,7 +28,7 @@ server.on('request', function (request, response) {
     var gmImg = gm(proxiedResponse, 'img.jpg');
     var writeStream = fs.createWriteStream('./dan.jpg');
 
-    gmImg.resize(100, 100).stream(function (err, stdout, stderr) {
+    gmImg.resize(qs.w, qs.h, qs.op || '>').stream(function (err, stdout, stderr) {
       stdout.on('end', function() {
         response.end();
       });
