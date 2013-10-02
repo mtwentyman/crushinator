@@ -1,0 +1,35 @@
+{
+  "name": "crushinator",
+  "version": "0.0.1",
+  "description": "High performance streaming image processing",
+  "keywords": [
+    "image",
+    "resize",
+    "processing"
+  ],
+  "repository": "git://github.com/mtwentyman/crushinator.git",
+  "author": "Michael Twentyman <mike@thirdfloorstudios.com> (http://thirdfloorstudios.com)",
+  "dependencies": {
+    "connect": "2.9.0",
+    "gm": "1.13.1"
+  },
+  "devDependencies": {
+    "should": "*",
+    "mocha": "*",
+    "jade": "*",
+    "dox": "*"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/senchalabs/connect/master/LICENSE"
+    }
+  ],
+  "main": "index",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "make"
+  }
+}
