@@ -28,9 +28,6 @@ server.on('request', function (request, response) {
     var gmImg = gm(proxiedResponse);
 
     gmImg.resize(qs.w, qs.h, qs.op || '>').stream(function (err, stdout, stderr) {
-      stdout.on('end', function() {
-        response.end();
-      });
       stdout.pipe(response);
     });
   });
