@@ -25,8 +25,7 @@ server.on('request', function (request, response) {
     console.log('STATUS: ' + proxiedResponse.statusCode);
     console.log('HEADERS: ' + JSON.stringify(proxiedResponse.headers));
     response.writeHead(200, {'Content-Type': proxiedResponse.headers['content-type']});
-    var gmImg = gm(proxiedResponse, 'img.jpg');
-    var writeStream = fs.createWriteStream('./dan.jpg');
+    var gmImg = gm(proxiedResponse);
 
     gmImg.resize(qs.w, qs.h, qs.op || '>').stream(function (err, stdout, stderr) {
       stdout.on('end', function() {
