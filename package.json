@@ -12,7 +12,7 @@
   "dependencies": {
     "bunyan": "0.22.0",
     "connect": "2.9.0",
-    "request": "2.27.0",
+    "request": "2.88.2",
     "opencv": "0.3.1",
     "gm": "1.13.1"
   },
